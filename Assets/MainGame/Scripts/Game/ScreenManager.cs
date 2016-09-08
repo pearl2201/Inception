@@ -1,15 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ScreenManager : MonoBehaviour {
+public class ScreenManager : MonoBehaviour
+{
+    [HideInInspector]
+    public Color colorBackgroundTop, colorBackgroundBot, colorItemTop, colorItemBot;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 }
