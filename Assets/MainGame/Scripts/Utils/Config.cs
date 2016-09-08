@@ -10,7 +10,9 @@ public class Config
     public static float SCREEN_HEIGHT = 7.2f;
     public static string KEYCODE = "";
     public static string USER_KEY = "";
-
+    public static TYPE_MODE currMode;
+    public static TYPE_WORLD currWorld;
+    public static DoorInfo lastDoorInfo;
 
 
     public static string GenKeyCode()
@@ -25,4 +27,10 @@ public enum TYPE_WORLD : int
     SIK = 0,
     GV = 1,
     AR = 2
+}
+
+public enum TYPE_MODE : int
+{
+    MAP = 0,
+    BOSS = 1
 }

@@ -1,11 +1,34 @@
 ﻿using UnityEngine;
 using System.Collections;
-
-public class SIKMapManager : AbstractMapStage
+using System;
+using SimpleJSON;
+public class SIKMapManager : AbstractMap
 {
+    public override void SetupDoor(DoorInfo info)
+    {
 
-	// Use this for initialization
-	void Start () {
+    }
+
+    public override void SetupMap()
+    {
+
+    }
+    public override JSONClass EncodeMap()
+    {
+        JSONClass jsClass = new JSONClass();
+        return jsClass;
+    }
+    public override void DecodeMap(JSONClass data)
+    {
+
+    }
+
+    public override void CloseMap()
+    {
+
+    }
+    // Use this for initialization
+    void Start () {
 	
 	}
 	
