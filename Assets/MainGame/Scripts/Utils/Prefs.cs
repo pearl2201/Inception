@@ -25,10 +25,32 @@ public class Prefs
     public static string KEY_LASTSCORE = "key_last_score";
     public static string KEY_COUNT_PLAY = "key_count_play";
     public static string KEY_ANDROIDID = "key_androidid";
+    public static string KEY_USERKEYCODE = "key_userkeycode";
+    public static string KEY_KEYCODE = "key_keycode";
     public Prefs()
     {
 
-       
+
+    }
+
+    public string GetKeyCode()
+    {
+        return PlayerPrefs.GetString(KEY_KEYCODE);
+    }
+
+    public void SetKeyCode(string key)
+    {
+        PlayerPrefs.SetString(KEY_KEYCODE, key);
+    }
+
+    public void SetUserKeyCode(string key)
+    {
+        PlayerPrefs.SetString(KEY_USERKEYCODE, key);
+    }
+
+    public string GetUserKeyCode()
+    {
+        return PlayerPrefs.GetString(KEY_USERKEYCODE);
     }
 
     public string GetAndroidID()

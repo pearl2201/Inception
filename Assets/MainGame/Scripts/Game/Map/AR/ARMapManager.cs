@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ARMapManager : MonoBehaviour {
+public class ARMapManager : AbstractMapStage {
 
 	// Use this for initialization
 	void Start () {

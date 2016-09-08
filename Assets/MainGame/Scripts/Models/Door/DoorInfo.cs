@@ -76,15 +76,15 @@ public class DoorInfo
         int v = 0;
         if (typeWorld == TYPE_WORLD.AR)
         {
-            v = 20;
+            v = 10;
         }
         else if (typeWorld == TYPE_WORLD.GV)
         {
-            v = 10;
+            v = 0;
         }
         else if (typeWorld == TYPE_WORLD.SIK)
         {
-            v = 0;
+            v = 20;
         }
         v += levelWorld;
         return v;
@@ -93,12 +93,38 @@ public class DoorInfo
     public static DoorInfo GetDoorInfoFromName(string doorcode)
     {
         DoorInfo dinfo = new DoorInfo();
+        dinfo.levelWorld = int.Parse(doorcode[0].ToString());
+        if (doorcode[1].Equals('A'))
+        {
+            dinfo.typeWorld = TYPE_WORLD.GV;
+        }
+        else if (doorcode[1].Equals('B'))
+        {
+            dinfo.typeWorld = TYPE_WORLD.AR;
+        }
+        else
+        {
+            dinfo.typeWorld = TYPE_WORLD.SIK;
+        }
         return dinfo;
     }
 
-    public static DoorInfo GetDoorInfoFromName(int doorvalue)
+    public static DoorInfo GetDoorInfoFromValue(int doorvalue)
     {
         DoorInfo dinfo = new DoorInfo();
+        dinfo.levelWorld = doorvalue % 10;
+        if (doorvalue / 10 == 0)
+        {
+            dinfo.typeWorld = TYPE_WORLD.GV;
+        }
+        else if (doorvalue / 10 == 1)
+        {
+            dinfo.typeWorld = TYPE_WORLD.AR;
+        }
+        else
+        {
+            dinfo.typeWorld = TYPE_WORLD.SIK;
+        }
         return dinfo;
     }
 

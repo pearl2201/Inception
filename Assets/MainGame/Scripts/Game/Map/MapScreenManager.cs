@@ -3,13 +3,22 @@ using System.Collections;
 
 public class MapScreenManager : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    #region singleton
+    private static MapScreenManager _instance;
+
+    public static MapScreenManager Instance
+    {
+        get
+        {
+            return _instance;
+        }
+    }
+
+    void Awake()
+    {
+        _instance = this;
+    }
+    #endregion
+
+    public AbstractMap currMap;
 }

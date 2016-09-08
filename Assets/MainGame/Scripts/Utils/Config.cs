@@ -1,8 +1,8 @@
-﻿using System;
+﻿
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using UnityEngine;
 
 public class Config
 {
@@ -13,7 +13,11 @@ public class Config
 
 
 
-
+    public static string GenKeyCode()
+    {
+        string keycode = Random.Range(1, 9).ToString("00") + Random.Range(11, 19).ToString("00") + Random.Range(21, 29).ToString("00");
+        return keycode;
+    }
 }
 
 public enum TYPE_WORLD : int
