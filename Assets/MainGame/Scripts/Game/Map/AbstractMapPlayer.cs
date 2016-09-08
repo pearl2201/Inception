@@ -6,14 +6,8 @@ public abstract class AbstractMapPlayer : MonoBehaviour {
     [SerializeField]
     private AbstractMap map;
 
-   
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
+    public abstract void Init();
+    public abstract void Tap();
+    public abstract void ChangeStage(int noStage);
 }

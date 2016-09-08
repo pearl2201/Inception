@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MapScreenManager : MonoBehaviour {
+public class MapScreenManager : MonoBehaviour
+{
 
     #region singleton
     private static MapScreenManager _instance;
@@ -28,7 +29,10 @@ public class MapScreenManager : MonoBehaviour {
     [SerializeField]
     private ARMapManager arMap;
 
+    public void Tap()
+    {
 
+    }
 
     public void CloseMap()
     {
@@ -37,6 +41,19 @@ public class MapScreenManager : MonoBehaviour {
 
     public void SetupMap(DoorInfo doorInfo)
     {
-
+        if (doorInfo.TypeWorld == TYPE_WORLD.AR)
+        {
+            currMap = arMap;
+        }
+        else if (doorInfo.TypeWorld == TYPE_WORLD.GV)
+        {
+            currMap = gvMap;
+        }
+        else
+        {
+            currMap = sikMap;
+        }
+        currMap.gameObject.SetActive(true);
+        currMap.SetupMap();
     }
 }
