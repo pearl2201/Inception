@@ -25,4 +25,8 @@ public class GVMapPlayer : AbstractMapPlayer
     {
 
     }
+    public override void ResetEnterStage()
+    {
+
+    }
 }

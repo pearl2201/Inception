@@ -13,6 +13,11 @@ public class ARMapPlayer :  AbstractMapPlayer
 	void Update () {
 	
 	}
+
+    public override void ResetEnterStage()
+    {
+
+    }
     public override void Init()
     {
 

@@ -28,4 +28,9 @@ public class SIKMapPlayer : AbstractMapPlayer
     {
 
     }
+
+    public override void ResetEnterStage()
+    {
+
+    }
 }
