@@ -6,11 +6,23 @@ using UnityEngine;
 
 public abstract class AbstractMapStage : MonoBehaviour
 {
+    public float baseYStage;
     public Color mainColor;
     public Color subColor;
-    public int stage; //  0->1
-
+    public int idStage; //  0->1
+    public List<GameObject> listEnemies;
     public abstract void SetupStage(bool isHasDoor);
+    public void Clear()
+    {
+        for (int i = 0; i < listEnemies.Count; i++)
+        {
+            Destroy(listEnemies[i].gameObject);
+
+
+
+        }
+        listEnemies.Clear();
+    }
     public void SetColor(Color mainColor, Color subColor)
     {
         this.mainColor = mainColor;

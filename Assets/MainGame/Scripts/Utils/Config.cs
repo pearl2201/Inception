@@ -34,3 +34,11 @@ public enum TYPE_MODE : int
     MAP = 0,
     BOSS = 1
 }
+
+public enum MAP_PLAYER_STATE :int
+{
+    MOVING,
+    JUMP,
+    INDOOR,
+    EXPLO
+}

@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ScreenManager : MonoBehaviour
+public class GameScreenManager : MonoBehaviour
 {
     #region singleton
-    private static ScreenManager _instance;
+    private static GameScreenManager _instance;
 
-    public static ScreenManager Instance
+    public static GameScreenManager Instance
     {
         get
         {
@@ -31,6 +31,8 @@ public class ScreenManager : MonoBehaviour
 
     public tk2dSprite bgTop;
     public tk2dSprite bgBot;
+
+
 
     void Start()
     {

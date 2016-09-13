@@ -11,6 +11,10 @@ public class SIKMapManager : AbstractMap
 
     public override void SetupMap()
     {
+        for (int i = 0; i < arrStages.Length; i++)
+        {
+            arrStages[i].SetupStage(false);
+        }
 
     }
     public override JSONClass EncodeMap()
@@ -28,12 +32,14 @@ public class SIKMapManager : AbstractMap
 
     }
     // Use this for initialization
-    void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 }

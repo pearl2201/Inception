@@ -4,6 +4,12 @@ using System;
 using SimpleJSON;
 public class GVMapManager : AbstractMap
 {
+    private GVMapPlayer rPlayer;
+
+    void Awake()
+    {
+        rPlayer = (GVMapPlayer)player;
+    }
     public override void SetupDoor(DoorInfo info)
     {
 
@@ -11,6 +17,9 @@ public class GVMapManager : AbstractMap
 
     public override void SetupMap()
     {
+        TYPE_GV_SEGMENT typeSegmentAdd = TYPE_GV_SEGMENT.LANE1;
+        TYPE_GV_SEGMENT virtualSegment = TYPE_GV_SEGMENT.LANE1;
+
 
     }
     public override JSONClass EncodeMap()
@@ -28,13 +37,5 @@ public class GVMapManager : AbstractMap
 
     }
 
-    // Use this for initialization
-    void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
 }

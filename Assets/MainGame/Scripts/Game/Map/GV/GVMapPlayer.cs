@@ -4,15 +4,18 @@ using System.Collections;
 public class GVMapPlayer : AbstractMapPlayer
 {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    public TYPE_GV_POS typePos;
+    // Use this for initialization
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
     public override void Init()
     {
 

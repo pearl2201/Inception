@@ -8,7 +8,9 @@ public class ARStage : AbstractMapStage
 {
     public override void SetupStage(bool isHasDoor)
     {
-        throw new NotImplementedException();
+
     }
+
+  
 }
 

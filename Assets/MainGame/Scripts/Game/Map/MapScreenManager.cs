@@ -28,10 +28,16 @@ public class MapScreenManager : MonoBehaviour
     private GVMapManager gvMap;
     [SerializeField]
     private ARMapManager arMap;
+    [HideInInspector]
+    public int idStage = 0;
 
+    public int levelMap;
     public void Tap()
     {
-
+        if (currMap != null)
+        {
+            currMap.player.Tap();
+        }
     }
 
     public void CloseMap()
@@ -54,6 +60,8 @@ public class MapScreenManager : MonoBehaviour
             currMap = sikMap;
         }
         currMap.gameObject.SetActive(true);
+        currMap.SetColor(GameScreenManager.Instance.color1, GameScreenManager.Instance.color2);
         currMap.SetupMap();
+        currMap.player.Init();
     }
 }
