@@ -4,6 +4,9 @@ using System;
 using SimpleJSON;
 public class ARMapManager : AbstractMap
 {
+    [SerializeField]
+    private GameObject halfMoonItem, moonItem;
+    
     public override void SetupDoor(DoorInfo info)
     {
 
@@ -11,7 +14,16 @@ public class ARMapManager : AbstractMap
 
     public override void SetupMap()
     {
+        // force setup in here
+        // setup lane 2 and lane 3 first
 
+
+        // chia ra 2 the loai
+        // setup lane 1 and lane 4 here
+
+        // setup door here
+
+        // setup map here
     }
     public override JSONClass EncodeMap()
     {

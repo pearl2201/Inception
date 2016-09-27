@@ -31,7 +31,7 @@ public class MapScreenManager : MonoBehaviour
     [HideInInspector]
     public int idStage = 0;
 
-    public int levelMap;
+    public int levelMap = 7;
     public void Tap()
     {
         if (currMap != null)
