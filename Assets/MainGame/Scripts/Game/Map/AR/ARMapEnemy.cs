@@ -6,5 +6,11 @@ using UnityEngine;
 
 public class ARMapEnemy : MonoBehaviour
 {
+    public tk2dSprite sprite;
+
+    public void SetColor(Color c)
+    {
+        sprite.color = c;
+    }
 }
 

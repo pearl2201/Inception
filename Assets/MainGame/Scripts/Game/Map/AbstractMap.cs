@@ -12,6 +12,8 @@ public abstract class AbstractMap : MonoBehaviour
     public abstract JSONClass EncodeMap();
     public abstract void DecodeMap(JSONClass data);
     public abstract void CloseMap();
+    [HideInInspector]
+    public AbstractMapStage currStage;
     public void ClearMap()
     {
         for (int i = 0; i < arrStages.Length; i++)
@@ -23,10 +25,11 @@ public abstract class AbstractMap : MonoBehaviour
     public void PlayerChangeStage()
     {
 
-        Debug.Log("change player stage");
+
         if (MapScreenManager.Instance.idStage == 0)
         {
             MapScreenManager.Instance.idStage = 1;
+            currStage = arrStages[1];
             player.ChangeStage(1);
         }
         else
@@ -37,6 +40,7 @@ public abstract class AbstractMap : MonoBehaviour
                 MapScreenManager.Instance.levelMap = 7;
             }
             MapScreenManager.Instance.idStage = 0;
+            currStage = arrStages[0];
             ClearMap();
             SetupMap();
             player.ChangeStage(0);

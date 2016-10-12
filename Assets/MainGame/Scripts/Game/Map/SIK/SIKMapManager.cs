@@ -15,7 +15,7 @@ public class SIKMapManager : AbstractMap
         {
             arrStages[i].SetupStage(false);
         }
-
+        currStage = arrStages[0];
     }
     public override JSONClass EncodeMap()
     {

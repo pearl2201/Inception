@@ -27,6 +27,8 @@ public class Prefs
     public static string KEY_ANDROIDID = "key_androidid";
     public static string KEY_USERKEYCODE = "key_userkeycode";
     public static string KEY_KEYCODE = "key_keycode";
+    public static string KEY_LAST_BOSS_DIFF = "last_boss_diff";
+
     public Prefs()
     {
 
@@ -62,6 +64,16 @@ public class Prefs
     {
         Debug.Log("set android id: " + key);
         PlayerPrefs.SetString(KEY_ANDROIDID, key);
+    }
+
+    public int GetLastBossDiff(TYPE_WORLD typeBoss)
+    {
+        return PlayerPrefs.GetInt(KEY_LAST_BOSS_DIFF + ((int)typeBoss));
+    }
+
+    public void SetLastBossDiff(TYPE_WORLD typeBoss, int diff)
+    {
+        PlayerPrefs.SetInt(KEY_LAST_BOSS_DIFF + ((int)typeBoss), diff);
     }
 
     public void SetSound(bool on)

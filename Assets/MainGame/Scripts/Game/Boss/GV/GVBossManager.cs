@@ -1,15 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
-public class GVBossManager : MonoBehaviour {
+public class GVBossManager : AbstractBossManager
+{
+    public override void UpdateCamera()
+    {
+        
+    }
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+   
 }

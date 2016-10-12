@@ -52,6 +52,7 @@ public class GVMapManager : AbstractMap
         {
             _arrStages[i].SetupStage(false, TYPE_GV_SEGMENT.LANE1, TYPE_GV_SEGMENT.LANE1, true);
         }
+        currStage = _arrStages[0];
 
     }
     public override JSONClass EncodeMap()

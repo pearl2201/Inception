@@ -32,18 +32,18 @@ public class GameScreenManager : MonoBehaviour
     public tk2dSprite bgTop;
     public tk2dSprite bgBot;
 
-
+    public tk2dCamera cam;
 
     void Start()
     {
-        OpenMapFirstPlay(); 
+        OpenMapFirstPlay();
     }
 
     public void OpenMapFirstPlay()
     {
         //TODO: tat check color
-        CheckColor();  
-        Config.lastDoorInfo = new DoorInfo(TYPE_WORLD.GV, 8);
+        CheckColor();
+        Config.lastDoorInfo = new DoorInfo(TYPE_WORLD.AR, 8);
         mapScreenManager.SetupMap(Config.lastDoorInfo);
     }
 
@@ -52,7 +52,8 @@ public class GameScreenManager : MonoBehaviour
         if (Config.currMode == TYPE_MODE.BOSS)
         {
             bossScreenManager.Tap();
-        }else
+        }
+        else
         {
             mapScreenManager.Tap();
         }
@@ -87,6 +88,7 @@ public class GameScreenManager : MonoBehaviour
             bossScreenManager.gameObject.SetActive(true);
             mapScreenManager.CloseMap();
             mapScreenManager.gameObject.SetActive(false);
+            bossScreenManager.SetupColor(color1, color2);
             bossScreenManager.SetupBoss();
         }
         else

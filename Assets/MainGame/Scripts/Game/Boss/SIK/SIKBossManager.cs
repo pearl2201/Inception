@@ -1,15 +1,23 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
-public class SIKBossManager : MonoBehaviour {
+public class SIKBossManager : AbstractBoss
+{
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
+    public override void GenEnemy()
+    {
+
+    }
+
+    public override void SetupEnemy()
+    {
+        GenEnemy();
+    }
+
+    public override void UpdateMoving()
+    {
+
+    }
 }

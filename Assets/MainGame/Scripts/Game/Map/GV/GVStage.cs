@@ -42,7 +42,9 @@ public class GVStage : AbstractMapStage
     private GameObject modelEnemyVer;
     [SerializeField]
     private GameObject modelEnemyRot;
-    public List<TYPE_GV_SEGMENT> listTypeGVSegment;
+    [HideInInspector]
+    public float lengthSegment;
+    public TYPE_GV_SEGMENT[] listTypeGVSegment;
     public override void SetupStage(bool isHasDoor)
     {
 
@@ -59,7 +61,7 @@ public class GVStage : AbstractMapStage
 
     public void AddLane(TYPE_GV_SEGMENT[] listTypeGVSegment, int posStart, int countSegment)
     {
-        Debug.Log("AddLane " + posStart);
+
         List<TYPE_GV_SEGMENT> listAddLine = new List<TYPE_GV_SEGMENT>();
         TYPE_GV_SEGMENT lastLine = listTypeGVSegment[posStart - 1];
         bool found = false;
@@ -140,7 +142,7 @@ public class GVStage : AbstractMapStage
 
     public void TraceLane(TYPE_GV_SEGMENT[] listTypeGVSegment, int _posEnd, int countSegment)
     {
-        Debug.Log("trace lane: " + _posEnd);
+
         int posEnd = _posEnd % 2 == 0 ? _posEnd : _posEnd + 1;
         TYPE_GV_SEGMENT lastLine = listTypeGVSegment[0];
         if (lastLine == TYPE_GV_SEGMENT.LANE12)
@@ -292,7 +294,7 @@ public class GVStage : AbstractMapStage
         }
         if (_posEnd % 2 == 1)
         {
-            Debug.Log("resign");
+
             listTypeGVSegment[posEnd] = TYPE_GV_SEGMENT.LANE13;
         }
     }
@@ -301,8 +303,8 @@ public class GVStage : AbstractMapStage
     {
         bool isAddedEnemy = false;
         int countSegment = (int)(4 + 4f * MapScreenManager.Instance.levelMap / 7);
-        float lengthSegment = 12.8f / countSegment;
-        TYPE_GV_SEGMENT[] listTypeGVSegment = new TYPE_GV_SEGMENT[countSegment];
+        lengthSegment = 12.8f / countSegment;
+       listTypeGVSegment = new TYPE_GV_SEGMENT[countSegment];
         TYPE_GV_SEGMENT lastSegmentBf = realForceSegment;
         listTypeGVSegment[0] = forcelastSegmentBf;
         int posStartAddLane = 1;
@@ -329,19 +331,12 @@ public class GVStage : AbstractMapStage
             //  posStartAddLane += 1;
         }
 
-        for (int i = 0; i < countSegment; i++)
-        {
-            Debug.Log(listTypeGVSegment[i].ToString());
 
-        }
+
         // addLane.
         if (posStartAddLane < countSegment)
             AddLane(listTypeGVSegment, posStartAddLane, countSegment);
-        for (int i = 0; i < countSegment; i++)
-        {
-            Debug.Log(listTypeGVSegment[i].ToString());
 
-        }
         // phan tich map
         bool[] lane1 = new bool[countSegment];
         bool[] lane2 = new bool[countSegment];
@@ -701,14 +696,15 @@ public class GVStage : AbstractMapStage
 
 
         // loop kien tao map.
-        Debug.Log("--------------------------------------------------------------------");
+
         for (int i = 0; i < countSegment; i++)
         {
-            Debug.Log(listTypeGVSegment[i].ToString());
+
 
             GameObject go = Instantiate(modelLane) as GameObject;
             go.transform.localScale = new Vector3(lengthSegment, 1, 1);
             go.transform.SetParent(transform);
+            listEnemies.Add(go);
             if (idStage == 0)
                 go.transform.localPosition = new Vector3(-6.4f + (i + 0.5f) * lengthSegment, 0, 0);
             else
@@ -717,10 +713,11 @@ public class GVStage : AbstractMapStage
             lineScript.Setup(listTypeGVSegment[i], subColor, mainColor);
         }
 
-        Debug.Log("++++-------------------------------------------------------+++++");
+
         if (isNeedAddEnemy)
         {
             int maxRdEnemy = 0;
+            GameObject modelInit = null;
             if (MapScreenManager.Instance.levelMap == 1 || MapScreenManager.Instance.levelMap == 4)
             {
 
@@ -733,10 +730,49 @@ public class GVStage : AbstractMapStage
             {
                 maxRdEnemy = 2;
             }
-
-
+            else
+            {
+                maxRdEnemy = 2;
+            }
+            int r = Random.Range(0, maxRdEnemy + 1);
+            if (r == 0)
+            {
+                modelInit = modelEnemyHoz;
+            }
+            else if (r == 1)
+            {
+                modelInit = modelEnemyVer;
+            }
+            else if (r == 2)
+            {
+                modelInit = modelEnemyRot;
+            }
+            GameObject go = Instantiate(modelInit) as GameObject;
+            go.transform.SetParent(transform);
+            listEnemies.Add(go);
+            if (idStage == 0)
+            {
+                go.transform.position = new Vector3(-6.4f + (posStartTraceLane + 2f) * lengthSegment, transform.position.y + 1.8f, -0.1f);
+            }
+            else
+            {
+                go.transform.position = new Vector3(6.4f - (posStartTraceLane + 2f) * lengthSegment, transform.position.y + 1.8f, -0.1f);
+            }
+            GVMapEnemy enemyScript = go.GetComponent<GVMapEnemy>();
+            if (r == 0)
+            {
+                enemyScript.InitLR(2 * lengthSegment, subColor);
+            }
+            else if (r == 1)
+            {
+                enemyScript.InitBT(subColor);
+            }
+            else if (r == 2)
+            {
+                enemyScript.InitRotate(subColor);
+            }
         }
-        
+
 
     }
 
