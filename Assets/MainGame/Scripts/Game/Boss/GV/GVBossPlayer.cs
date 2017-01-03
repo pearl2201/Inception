@@ -86,7 +86,7 @@ public class GVBossPlayer : AbstractBossPlayer
         GameObject go = Instantiate(bullet.gameObject) as GameObject;
         go.transform.position = transform.position;
         AbstractBullet bulletScript = go.GetComponent<AbstractBullet>();
-        bulletScript.Setup()
+        bulletScript.Setup(bossManager.boss);
     }
 
     IEnumerator IEDying()

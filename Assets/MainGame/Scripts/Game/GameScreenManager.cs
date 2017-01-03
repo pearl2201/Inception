@@ -43,7 +43,7 @@ public class GameScreenManager : MonoBehaviour
     {
         //TODO: tat check color
         CheckColor();
-        Config.lastDoorInfo = new DoorInfo(TYPE_WORLD.AR, 8);
+        Config.lastDoorInfo = new DoorInfo(TYPE_WORLD.SIK, 8);
         mapScreenManager.SetupMap(Config.lastDoorInfo);
     }
 

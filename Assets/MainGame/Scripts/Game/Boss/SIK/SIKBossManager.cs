@@ -2,22 +2,10 @@
 using System.Collections;
 using System;
 
-public class SIKBossManager : AbstractBoss
+public class SIKBossManager : AbstractBossManager
 {
-
-
-    public override void GenEnemy()
+    public override void UpdateCamera()
     {
-
-    }
-
-    public override void SetupEnemy()
-    {
-        GenEnemy();
-    }
-
-    public override void UpdateMoving()
-    {
-
+        throw new NotImplementedException();
     }
 }
